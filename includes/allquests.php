@@ -10,7 +10,7 @@ $quest_class = array(
 	0	=> array(36, 45, 3, 25, 4, 46, 279, 41, 2257, 1, 10, 139, 12, 3430, 3433, 267, 1537, 4080, 38, 44, 51, 3487, 130, 1519, 33, 8, 47, 85, 1497, 28, 40, 11),
 	1	=> array(331, 16, 3524, 3525, 148, 1657, 405, 14, 15, 361, 357, 493, 215, 1637, 1377, 406, 440, 141, 17, 3557, 400, 1638, 1216, 490, 618),
 	8	=> array(3522, 3483, 3518, 3523, 3520, 3703, 3679, 3519, 3521),
-	10	=> array(3537, 4024, 4395, 65, 394, 495, 210, 3711, 67, 4197, 66),
+	10 => array(3537, 4024, 4395, 65, 394, 495, 210, 3711, 67, 4197, 66),
 	2	=> array(4494, 3790, 3477, 719, 1584, 1583, 1941, 3905, 2557, 4196, 133, 4375, 4272, 4264, 3562, 4095, 3792, 2100, 2367, 2437, 722, 491, 796, 2057, 3791, 3789, 209, 2017, 4100, 1417, 3845, 3846, 2366, 3713, 3847, 1581, 3849, 4120, 4228, 3714, 3717, 3715, 717, 3716, 4415, 4723, 1337, 206, 1196, 718, 978),
 	3	=> array(2677, 3606, 2562, 3836, 2717, 3456, 2159, 3429, 3428, 3840, 3842, 4500, 4722, 4273, 3805, 19),
 	4	=> array(-372, -263, -261, -161, -141, -262, -162, -82, -61, -81),
@@ -90,12 +90,12 @@ define('QUEST_DATAFLAG_AJAXTOOLTIP', (QUEST_DATAFLAG_LISTINGS | QUEST_DATAFLAG_S
 
 $questcols[QUEST_DATAFLAG_MINIMUM]	= array('entry', 'Title');
 $questcols[QUEST_DATAFLAG_STRINGS]	= array('Objectives', 'Details', 'RequestItemsText', 'OfferRewardText', 'EndText', 'ObjectiveText1', 'ObjectiveText2', 'ObjectiveText3', 'ObjectiveText4');
-$questcols[QUEST_DATAFLAG_REWARDS]	= array('RewChoiceItemId1', 'RewChoiceItemId2', 'RewChoiceItemId3', 'RewChoiceItemId4', 'RewChoiceItemId5', 'RewChoiceItemId6', 'RewChoiceItemCount1', 'RewChoiceItemCount2', 'RewChoiceItemCount3', 'RewChoiceItemCount4', 'RewChoiceItemCount5', 'RewChoiceItemCount6', 'RewItemId1', 'RewItemId2', 'RewItemId3', 'RewItemId4', 'RewItemCount1', 'RewItemCount2', 'RewItemCount3', 'RewItemCount4', 'RewMoneyMaxLevel', 'RewOrReqMoney', 'ReqSpellCast1', 'ReqSpellCast2', 'ReqSpellCast3', 'ReqSpellCast4', 'ReqCreatureOrGOId1', 'ReqCreatureOrGOId2', 'ReqCreatureOrGOId3', 'ReqCreatureOrGOId4', 'ReqItemId1', 'ReqItemId2', 'ReqItemId3', 'ReqItemId4', 'ReqItemCount1', 'ReqItemCount2', 'ReqItemCount3', 'ReqItemCount4', 'SuggestedPlayers', 'ReqCreatureOrGOCount1', 'ReqCreatureOrGOCount2', 'ReqCreatureOrGOCount3', 'ReqCreatureOrGOCount4', 'RewSpell', 'RewSpellCast', 'RewRepFaction1', 'RewRepFaction2', 'RewRepFaction3', 'RewRepFaction4', 'RewRepFaction5', 'RewRepValueId1', 'RewRepValueId2', 'RewRepValueId3', 'RewRepValueId4', 'RewRepValueId5', 'RewRepValue1', 'RewRepValue2', 'RewRepValue3', 'RewRepValue4', 'RewRepValue5', 'SrcItemId', 'SrcItemCount', 'SrcSpell', 'RepObjectiveFaction', 'RepObjectiveValue', 'RequiredMinRepFaction', 'RequiredMinRepValue', 'RequiredMaxRepFaction', 'RequiredMaxRepValue', 'PlayersSlain', 'BonusTalents', 'ReqSourceId1', 'ReqSourceCount1', 'ReqSourceId2', 'ReqSourceCount2', 'ReqSourceId3', 'ReqSourceCount3', 'ReqSourceId4', 'ReqSourceCount4', 'RewHonorAddition', 'RewMailTemplateId', 'RewMailDelaySecs', 'PointX', 'PointY', 'StartScript', 'CompleteScript');
-$questcols[QUEST_DATAFLAG_PROPS]	= array('Type', 'ZoneOrSort', 'QuestFlags', 'QuestLevel', 'MinLevel', 'RequiredRaces', 'RequiredSkillValue', 'SkillOrClassMask', 'LimitTime', 'SpecialFlags', 'CharTitleId');
-$questcols[QUEST_DATAFLAG_SERIES]	= array('PrevQuestID', 'NextQuestInChain', 'ExclusiveGroup', 'NextQuestID');
+$questcols[QUEST_DATAFLAG_REWARDS]	= array('RewardChoiceItemId1', 'RewardChoiceItemId2', 'RewardChoiceItemId3', 'RewardChoiceItemId4', 'RewardChoiceItemId5', 'RewardChoiceItemId6', 'RewardChoiceItemCount1', 'RewardChoiceItemCount2', 'RewardChoiceItemCount3', 'RewardChoiceItemCount4', 'RewardChoiceItemCount5', 'RewardChoiceItemCount6', 'RewardItemId1', 'RewardItemId2', 'RewardItemId3', 'RewardItemId4', 'RewardItemCount1', 'RewardItemCount2', 'RewardItemCount3', 'RewardItemCount4', 'RewardMoneyMaxLevel', 'RewardOrRequiredMoney', 'RequiredSpellCast1', 'RequiredSpellCast2', 'RequiredSpellCast3', 'RequiredSpellCast4', 'RequiredNpcOrGo1', 'RequiredNpcOrGo2', 'RequiredNpcOrGo3', 'RequiredNpcOrGo4', 'RequiredItemId1', 'RequiredItemId2', 'RequiredItemId3', 'RequiredItemId4', 'RequiredItemCount1', 'RequiredItemCount2', 'RequiredItemCount3', 'RequiredItemCount4', 'SuggestedPlayers', 'RequiredNpcOrGoCount1', 'RequiredNpcOrGoCount2', 'RequiredNpcOrGoCount3', 'RequiredNpcOrGoCount4', 'RewardSpell', 'RewardSpellCast', 'RewardFactionValueId1', 'RewardFactionValueId2', 'RewardFactionValueId3', 'RewardFactionValueId4', 'RewardFactionValueId5', 'RewardFactionId1', 'RewardFactionId2', 'RewardFactionId3', 'RewardFactionId4', 'RewardFactionId5', 'RewardFactionValueId1', 'RewardFactionValueId2', 'RewardFactionValueId3', 'RewardFactionValueId4', 'RewardFactionValueId5', 'SourceItemId', 'SourceItemCount', 'SourceSpellId', 'RequiredFactionId1', 'RequiredFactionValue1', 'RequiredMinRepFaction', 'RequiredMinRepValue', 'RequiredMaxRepFaction', 'RequiredMaxRepValue', 'RequiredPlayerKills', 'RewardTalents', 'RequiredSourceItemId1', 'RequiredSourceItemCount1', 'RequiredSourceItemId2', 'RequiredSourceItemCount2', 'RequiredSourceItemId3', 'RequiredSourceItemCount3', 'RequiredSourceItemId4', 'RequiredSourceItemCount4', 'RewardHonor', 'RewardArenaPoints', 'RewardMailTemplateId', 'RewardMailDelay', 'PointX', 'PointY'/*, 'CompleteScript'*/);
+$questcols[QUEST_DATAFLAG_PROPS]	= array('Type', 'RequiredClasses', 'ZoneOrSort', 'Flags', 'Level', 'MinLevel', 'RewardXPId', 'RequiredRaces', 'RequiredSkillPoints', 'RequiredSkillId', 'LimitTime', 'SpecialFlags', 'RewardTitleId');
+$questcols[QUEST_DATAFLAG_SERIES]	= array('PrevQuestId', 'NextQuestIdChain', 'ExclusiveGroup', 'NextQuestId');
 
-$quest_cols[2] = array('entry', 'Title', 'QuestLevel', 'MinLevel', 'RequiredRaces', 'RewChoiceItemId1', 'RewChoiceItemId2', 'RewChoiceItemId3', 'RewChoiceItemId4', 'RewChoiceItemId5', 'RewChoiceItemId6', 'RewChoiceItemCount1', 'RewChoiceItemCount2', 'RewChoiceItemCount3', 'RewChoiceItemCount4', 'RewChoiceItemCount5', 'RewChoiceItemCount6', 'RewItemId1', 'RewItemId2', 'RewItemId3', 'RewItemId4', 'RewItemCount1', 'RewItemCount2', 'RewItemCount3', 'RewItemCount4', 'RewMoneyMaxLevel', 'RewOrReqMoney', 'Type', 'ZoneOrSort', 'QuestFlags');
-$quest_cols[3] = array('Title', 'QuestLevel', 'MinLevel', 'RequiredRaces', 'RewChoiceItemId1', 'RewChoiceItemId2', 'RewChoiceItemId3', 'RewChoiceItemId4', 'RewChoiceItemId5', 'RewChoiceItemId6', 'RewChoiceItemCount1', 'RewChoiceItemCount2', 'RewChoiceItemCount3', 'RewChoiceItemCount4', 'RewChoiceItemCount5', 'RewChoiceItemCount6', 'RewItemId1', 'RewItemId2', 'RewItemId3', 'RewItemId4', 'RewItemCount1', 'RewItemCount2', 'RewItemCount3', 'RewItemCount4', 'RewMoneyMaxLevel', 'RewOrReqMoney', 'Type', 'ZoneOrSort', 'QuestFlags', 'RewRepFaction1', 'RewRepFaction2', 'RewRepFaction3', 'RewRepFaction4', 'RewRepFaction5', 'RewRepValueId1', 'RewRepValueId2', 'RewRepValueId3', 'RewRepValueId4', 'RewRepValueId5', 'RewRepValue1', 'RewRepValue2', 'RewRepValue3', 'RewRepValue4', 'RewRepValue5', 'Objectives', 'Details', 'RequestItemsText', 'OfferRewardText', 'ReqCreatureOrGOId1', 'ReqCreatureOrGOId2', 'ReqCreatureOrGOId3', 'ReqCreatureOrGOId4', 'ReqItemId1', 'ReqItemId2', 'ReqItemId3', 'ReqItemId4', 'ReqItemCount1', 'ReqItemCount2', 'ReqItemCount3', 'ReqItemCount4', 'SrcItemId', 'ReqCreatureOrGOCount1', 'ReqCreatureOrGOCount2', 'ReqCreatureOrGOCount3', 'ReqCreatureOrGOCount4', 'ObjectiveText1', 'ObjectiveText2', 'ObjectiveText3', 'ObjectiveText4', 'EndText', 'PrevQuestID', 'NextQuestInChain', 'ExclusiveGroup', 'NextQuestID', 'RewSpellCast', 'RewSpell', 'RequiredSkillValue', 'RepObjectiveFaction', 'RepObjectiveValue', 'SuggestedPlayers', 'LimitTime', 'QuestFlags', 'SpecialFlags', 'CharTitleId', 'RequiredMinRepFaction', 'RequiredMinRepValue', 'RequiredMaxRepFaction', 'RequiredMaxRepValue', 'SrcSpell', 'SkillOrClassMask', 'ReqSpellCast1', 'ReqSpellCast2', 'ReqSpellCast3', 'ReqSpellCast4');
+$quest_cols[2] = array('entry', 'Title', 'Level', 'MinLevel', 'RequiredRaces', 'RewardChoiceItemId1', 'RewardChoiceItemId2', 'RewardChoiceItemId3', 'RewardChoiceItemId4', 'RewardChoiceItemId5', 'RewardChoiceItemId6', 'RewardChoiceItemCount1', 'RewardChoiceItemCount2', 'RewardChoiceItemCount3', 'RewardChoiceItemCount4', 'RewardChoiceItemCount5', 'RewardChoiceItemCount6', 'RewardItemId1', 'RewardItemId2', 'RewardItemId3', 'RewardItemId4', 'RewardItemCount1', 'RewardItemCount2', 'RewardItemCount3', 'RewardItemCount4', 'RewardMoneyMaxLevel', 'RewardOrRequiredMoney', 'Type', 'ZoneOrSort', 'Flags');
+$quest_cols[3] = array('Title', 'Level', 'MinLevel', 'RequiredRaces', 'RewardChoiceItemId1', 'RewardChoiceItemId2', 'RewardChoiceItemId3', 'RewardChoiceItemId4', 'RewardChoiceItemId5', 'RewardChoiceItemId6', 'RewardChoiceItemCount1', 'RewardChoiceItemCount2', 'RewardChoiceItemCount3', 'RewardChoiceItemCount4', 'RewardChoiceItemCount5', 'RewardChoiceItemCount6', 'RewardItemId1', 'RewardItemId2', 'RewardItemId3', 'RewardItemId4', 'RewardItemCount1', 'RewardItemCount2', 'RewardItemCount3', 'RewardItemCount4', 'RewardMoneyMaxLevel', 'RewardOrRequiredMoney', 'Type', 'RequiredClasses', 'ZoneOrSort', 'Flags', 'RewardFactionValueId1', 'RewardFactionValueId2', 'RewardFactionValueId3', 'RewardFactionValueId4', 'RewardFactionValueId5', 'RewardFactionId1', 'RewardFactionId2', 'RewardFactionId3', 'RewardFactionId4', 'RewardFactionId5', 'RewardFactionValueId1', 'RewardFactionValueId2', 'RewardFactionValueId3', 'RewardFactionValueId4', 'RewardFactionValueId5', 'Objectives', 'Details', 'RequestItemsText', 'OfferRewardText', 'RequiredNpcOrGo1', 'RequiredNpcOrGo2', 'RequiredNpcOrGo3', 'RequiredNpcOrGo4', 'RequiredItemId1', 'RequiredItemId2', 'RequiredItemId3', 'RequiredItemId4', 'RequiredItemCount1', 'RequiredItemCount2', 'RequiredItemCount3', 'RequiredItemCount4', 'SourceItemId', 'RequiredNpcOrGoCount1', 'RequiredNpcOrGoCount2', 'RequiredNpcOrGoCount3', 'RequiredNpcOrGoCount4', 'ObjectiveText1', 'ObjectiveText2', 'ObjectiveText3', 'ObjectiveText4', 'EndText', 'PrevQuestID', 'NextQuestIdChain', 'ExclusiveGroup', 'NextQuestID', 'RewSpellCast', 'RewSpell', 'RequiredSkillPoints', 'RequiredFactionId1', 'RequiredFactionValue1', 'SuggestedPlayers', 'LimitTime', 'Flags', 'SpecialFlags', 'RewardTitleId', 'RequiredMinRepFaction', 'RequiredMinRepValue', 'RequiredMaxRepFaction', 'RequiredMaxRepValue', 'SourceSpellId', 'RequiredSkillId', 'RequiredSpellCast1', 'RequiredSpellCast2', 'RequiredSpellCast3', 'RequiredSpellCast4');
 
 function QuestReplaceStr($str)
 {
@@ -123,41 +123,41 @@ function QuestReplaceStr($str)
 
 // Информация, возвращаемая этой функцией, очень помогает
 // оценить доступность и выполнимость квестов.
-function GetQuestFlagsDetails($data)
+function GetFlagsDetails($data)
 {
 	$result = array();
 	// Неявно используемые в квесте итемы
-	$srcitems = array();
+	$SourceItems = array();
 	for ($i=1; $i<=4; $i++)
-		if (isset($data['ReqSourceId'.$i]) && isset($data['ReqSourceCount'.$i]) && $data['ReqSourceId'.$i])
-			if ($data['ReqSourceCount'.$i] == 1)
-				$srcitems[] = $data['ReqSourceId'.$i];
+		if (isset($data['RequiredSourceItemId'.$i]) && isset($data['RequiredSourceItemCount'.$i]) && $data['RequiredSourceItemId'.$i])
+			if ($data['RequiredSourceItemCount'.$i] == 1)
+				$SourceItems[] = $data['RequiredSourceItemId'.$i];
 			else
-				$srcitems[] = $data['ReqSourceId'.$i] . "x" . $data['ReqSourceCount'.$i];
+				$SourceItems[] = $data['RequiredSourceItemId'.$i] . "x" . $data['RequiredSourceItemCount'.$i];
 
 	// Разные квестовые флаги, и клиентские и серверные
-	if ($data['QuestFlags'])
+	if ($data['Flags'])
 	{
-		if ($data['QuestFlags'] & QUEST_FLAGS_STAY_ALIVE)     $result[] = LOCALE_QUEST_FLAGS_STAY_ALIVE;
-		if ($data['QuestFlags'] & QUEST_FLAGS_PARTY_ACCEPT)   $result[] = LOCALE_QUEST_FLAGS_PARTY_ACCEPT;
-		if ($data['QuestFlags'] & QUEST_FLAGS_EXPLORATION)    $result[] = LOCALE_QUEST_FLAGS_EXPLORATION;
-		if ($data['QuestFlags'] & QUEST_FLAGS_SHARABLE)       $result[] = LOCALE_QUEST_FLAGS_SHARABLE;
-		if ($data['QuestFlags'] & QUEST_FLAGS_EPIC)           $result[] = LOCALE_QUEST_FLAGS_EPIC;
-		if ($data['QuestFlags'] & QUEST_FLAGS_RAID)           $result[] = LOCALE_QUEST_FLAGS_RAID;
-		if ($data['QuestFlags'] & QUEST_FLAGS_TBC)            $result[] = LOCALE_QUEST_FLAGS_TBC;
-		//if ($data['QuestFlags'] & QUEST_FLAGS_UNK2)           $result[] = LOCALE_QUEST_FLAGS_UNK2;
-		if ($data['QuestFlags'] & QUEST_FLAGS_HIDDEN_REWARDS) $result[] = LOCALE_QUEST_FLAGS_HIDDEN_REWARDS;
-		if ($data['QuestFlags'] & QUEST_FLAGS_AUTO_REWARDED)  $result[] = LOCALE_QUEST_FLAGS_AUTO_REWARDED;
-		if ($data['QuestFlags'] & QUEST_FLAGS_TBC_RACES)      $result[] = LOCALE_QUEST_FLAGS_TBC_RACES;
-		if ($data['QuestFlags'] & QUEST_FLAGS_DAILY)          $result[] = LOCALE_QUEST_FLAGS_DAILY;
-		if ($data['QuestFlags'] & QUEST_FLAGS_UNK5)           $result[] = LOCALE_QUEST_FLAGS_UNK5;
+		if ($data['Flags'] & QUEST_FLAGS_STAY_ALIVE)     $result[] = LOCALE_QUEST_FLAGS_STAY_ALIVE;
+		if ($data['Flags'] & QUEST_FLAGS_PARTY_ACCEPT)   $result[] = LOCALE_QUEST_FLAGS_PARTY_ACCEPT;
+		if ($data['Flags'] & QUEST_FLAGS_EXPLORATION)    $result[] = LOCALE_QUEST_FLAGS_EXPLORATION;
+		if ($data['Flags'] & QUEST_FLAGS_SHARABLE)       $result[] = LOCALE_QUEST_FLAGS_SHARABLE;
+		if ($data['Flags'] & QUEST_FLAGS_EPIC)           $result[] = LOCALE_QUEST_FLAGS_EPIC;
+		if ($data['Flags'] & QUEST_FLAGS_RAID)           $result[] = LOCALE_QUEST_FLAGS_RAID;
+		if ($data['Flags'] & QUEST_FLAGS_TBC)            $result[] = LOCALE_QUEST_FLAGS_TBC;
+		//if ($data['Flags'] & QUEST_FLAGS_UNK2)           $result[] = LOCALE_QUEST_FLAGS_UNK2;
+		if ($data['Flags'] & QUEST_FLAGS_HIDDEN_REWARDS) $result[] = LOCALE_QUEST_FLAGS_HIDDEN_REWARDS;
+		if ($data['Flags'] & QUEST_FLAGS_AUTO_REWARDED)  $result[] = LOCALE_QUEST_FLAGS_AUTO_REWARDED;
+		if ($data['Flags'] & QUEST_FLAGS_TBC_RACES)      $result[] = LOCALE_QUEST_FLAGS_TBC_RACES;
+		if ($data['Flags'] & QUEST_FLAGS_DAILY)          $result[] = LOCALE_QUEST_FLAGS_DAILY;
+		if ($data['Flags'] & QUEST_FLAGS_UNK5)           $result[] = LOCALE_QUEST_FLAGS_UNK5;
 	}
 
 	// Неявно используемые доп. элементы (интересно, кто назвал эту константу "..._UNK2"?)
-	if (($data['QuestFlags'] & QUEST_FLAGS_UNK2) || $srcitems)
+	if (($data['Flags'] & QUEST_FLAGS_UNK2) || $SourceItems)
 	{
 		$tmp = LOCALE_QUEST_FLAGS_UNK2;
-		if ($srcitems) $tmp = $tmp . " (" . implode(", ", $srcitems) . ")";
+		if ($SourceItems) $tmp = $tmp . " (" . implode(", ", $SourceItems) . ")";
 		$result[] = $tmp;
 	}
 
@@ -170,48 +170,49 @@ function GetQuestFlagsDetails($data)
 
 	// Наличие стартовых и финишных скриптов
 	if ($data['PointX'] || $data['PointY']) $result[] = LOCALE_QUEST_HAS_POI;
-	if ($data['StartScript'])               $result[] = LOCALE_QUEST_HAS_START_SCRIPT;
+	//if ($data['StartScript'])               $result[] = LOCALE_QUEST_HAS_START_SCRIPT;
 	if ($data['CompleteScript'])            $result[] = LOCALE_QUEST_HAS_COMPLETE_SCRIPT;
 
 	return $result;
 }
 
+function GetQuestXP($xpid, $quest_level)
+{
+	global $DB;
+	$row = $DB->selectRow('
+			SELECT 
+				 xpid?d AS xpid
+			FROM aowow_questxp
+			WHERE  level = ?d
+            ', $xpid, $quest_level);
+    return ($row['xpid'] );
+}
+
 function GetQuestXpOrMoney($data)
 {
-	// From MaNGOS Sources
-	$pLevel = $data['MinLevel'] + 1;
-	$qLevel = $data['QuestLevel'];
-	$RewMoneyMaxLevel = $data['RewMoneyMaxLevel'];
-	if(!$RewMoneyMaxLevel)
+	//  TRINITY Sources
+	$QminLevel = $data['MinLevel'];
+	$QmaxLevel = $data['MaxLevel'];
+	$QLevel = $data['Level'];
+    $qRewardXPid = $data['RewardXPId'];
+	//$RewardMoneyMaxLevel = $data['RewardMoneyMaxLevel'];
+	//if(!$RewardMoneyMaxLevel)
+		//return 0;
+	if($qRewardXPid==0)
 		return 0;
-	$fullxp = 0;
-	if($qLevel >= 15)
-		$fullxp = $RewMoneyMaxLevel / 6.0;
-	elseif($qLevel == 14)
-		$fullxp = $RewMoneyMaxLevel / 4.8;
-	elseif($qLevel == 13)
-		$fullxp = $RewMoneyMaxLevel / 3.666;
-	elseif($qLevel == 12)
-		$fullxp = $RewMoneyMaxLevel / 2.4;
-	elseif($qLevel == 11)
-		$fullxp = $RewMoneyMaxLevel / 1.2;
-	elseif($qLevel >= 1 && $qLevel <= 10)
-		$fullxp = $RewMoneyMaxLevel / 0.6;
-	elseif($qLevel == 0)
-		$fullxp = $RewMoneyMaxLevel;
 
-	if( $pLevel <= $qLevel +  5 )
-		return $fullxp;
-	elseif( $pLevel == $qLevel +  6 )
-		return ($fullxp * 0.8);
-	elseif( $pLevel == $qLevel +  7 )
-		return ($fullxp * 0.6);
-	elseif( $pLevel == $qLevel +  8 )
-		return ($fullxp * 0.4);
-	elseif( $pLevel == $qLevel +  9 )
-		return ($fullxp * 0.2);
-	else
-		return ($fullxp * 0.1);
+	if($QLevel==0 && $QminLevel >0)
+        $QLevel=$QminLevel;
+	else if($QLevel==0 && $QmaxLevel > 0)
+        $QLevel=$QmaxLevel;
+    else if($QLevel<0)
+        $QLevel=80;
+    else if($QLevel==0)
+            $QLevel=1;
+
+        $xp = GetQuestXP($qRewardXPid, $QLevel);
+
+return ($xp);
 }
 
 // ????
@@ -294,28 +295,28 @@ function GetQuestTooltip($row)
 
 //	$x .= '<br>';
 
-	if((($row['ReqCreatureOrGOId1']) and ($row['ReqCreatureOrGOCount1'])) or
-			(($row['ReqCreatureOrGOId2']) and ($row['ReqCreatureOrGOCount2'])) or
-			(($row['ReqCreatureOrGOId3']) and ($row['ReqCreatureOrGOCount3'])) or
-			(($row['ReqCreatureOrGOId4']) and ($row['ReqCreatureOrGOCount4'])) or
-			(($row['ReqItemId1']) and ($row['ReqItemCount1'])) or
-			(($row['ReqItemId2']) and ($row['ReqItemCount2'])) or
-			(($row['ReqItemId3']) and ($row['ReqItemCount3'])) or
-			(($row['ReqItemId4']) and ($row['ReqItemCount4'])))
+	if((($row['RequiredNpcOrGo1']) and ($row['RequiredNpcOrGoCount1'])) or
+			(($row['RequiredNpcOrGo2']) and ($row['RequiredNpcOrGoCount2'])) or
+			(($row['RequiredNpcOrGo3']) and ($row['RequiredNpcOrGoCount3'])) or
+			(($row['RequiredNpcOrGo4']) and ($row['RequiredNpcOrGoCount4'])) or
+			(($row['RequiredItemId1']) and ($row['RequiredItemCount1'])) or
+			(($row['RequiredItemId2']) and ($row['RequiredItemCount2'])) or
+			(($row['RequiredItemId3']) and ($row['RequiredItemCount3'])) or
+			(($row['RequiredItemId4']) and ($row['RequiredItemCount4'])))
 	{
 		$x .= '<tr><td><br>';
 		$x .= '<div class="q">'.LOCALE_REQUIREMENTS.':<br></div>';
 		for($j=1;$j<=4;$j++)
-			if($row['ReqCreatureOrGOId'.$j] and $row['ReqCreatureOrGOCount'.$j])
+			if($row['RequiredNpcOrGo'.$j] and $row['RequiredNpcOrGoCount'.$j])
 				$x .= '- '
 					.(
 						(!empty($row['ObjectiveText'][$j]))?
 						$row['ObjectiveText'][$j]:
-						GetQuestReq($row['ReqCreatureOrGOId'.$j], $row['ReqCreatureOrGOCount'.$j], 1)
+						GetQuestReq($row['RequiredNpcOrGo'.$j], $row['RequiredNpcOrGoCount'.$j], 1)
 					).'<br>';
 		for($j=1;$j<=4;$j++)
-			if($row['ReqItemId'.$j] and $row['ReqItemCount'.$j])
-				$x .= '- '.GetQuestReq($row['ReqItemId'.$j], $row['ReqItemCount'.$j], 2).'<br>';
+			if($row['RequiredItemId'.$j] and $row['RequiredItemCount'.$j])
+				$x .= '- '.GetQuestReq($row['RequiredItemId'.$j], $row['RequiredItemCount'.$j], 2).'<br>';
 		$x .= '</td></tr>';
 	}
 	$x .= '</table>';
@@ -341,7 +342,7 @@ function GetQuestDBLocale($quest)
 				ObjectiveText3_loc?d AS ObjectiveText3_loc,
 				ObjectiveText4_loc?d AS ObjectiveText4_loc
 			FROM locales_quest
-			WHERE entry = ?d
+			WHERE Id = ?d
 			LIMIT 1
 		',
 		$loc, $loc, $loc, $loc, $loc, $loc, $loc, $loc, $loc, $loc,
@@ -361,7 +362,7 @@ function GetDBQuestInfo($id, $dataflag = QUEST_DATAFLAG_MINIMUM)
 			SELECT
 				1
 				{, ?# } {, ?# } {, ?# } {, ?# } {, ?# }
-			FROM quest_template
+			FROM v_quest_template
 			WHERE entry=?d
 			LIMIT 1
 		',
@@ -383,9 +384,9 @@ function GetDBQuestInfo($id, $dataflag = QUEST_DATAFLAG_MINIMUM)
  * $dataflag - флаг уровень:
  * QUEST_DATAFLAG_MINIMUN	- entry, Title
  * QUEST_DATAFLAG_STRINGS	- Objectives, Details, RequestItemsText, OfferRewardText, EndText, ObjectiveText1, ObjectiveText2, ObjectiveText3, ObjectiveText4
- * QUEST_DATAFLAG_SERIES	- PrevQuestID, NextQuestInChain, ExclusiveGroup, NextQuestID
+ * QUEST_DATAFLAG_SERIES	- PrevQuestID, NextQuestIdChain, ExclusiveGroup, NextQuestID
  * QUEST_DATAFLAG_PROPS		- Daily, Type, side, etc.
- * QUEST_DATAFLAG_REWARDS	- RewChoiceItemId1, RewChoiceItemId2, RewChoiceItemId3, RewChoiceItemId4, RewChoiceItemId5, RewChoiceItemId6, RewChoiceItemCount1', 'RewChoiceItemCount2, RewChoiceItemCount3, 'RewChoiceItemCount4', 'RewChoiceItemCount5', 'RewChoiceItemCount6', 'RewItemId1', 'RewItemId2', 'RewItemId3', 'RewItemId4', 'RewItemCount1', 'RewItemCount2', 'RewItemCount3', 'RewItemCount4', 'RewMoneyMaxLevel', 'RewOrReqMoney', 'ReqSpellCast1', 'ReqSpellCast2', 'ReqSpellCast3', 'ReqSpellCast4', 'ReqCreatureOrGOId1', 'ReqCreatureOrGOId2', 'ReqCreatureOrGOId3', 'ReqCreatureOrGOId4', 'ReqItemId1', 'ReqItemId2', 'ReqItemId3', 'ReqItemId4', 'ReqItemCount1', 'ReqItemCount2', 'ReqItemCount3', 'ReqItemCount4', 'SrcItemId', 'ReqCreatureOrGOCount1', 'ReqCreatureOrGOCount2', 'ReqCreatureOrGOCount3', 'ReqCreatureOrGOCount4
+ * QUEST_DATAFLAG_REWARDS	- RewardChoiceItemId1, RewardChoiceItemId2, RewardChoiceItemId3, RewardChoiceItemId4, RewardChoiceItemId5, RewardChoiceItemId6, RewardChoiceItemCount1', 'RewardChoiceItemCount2, RewardChoiceItemCount3, 'RewardChoiceItemCount4', 'RewardChoiceItemCount5', 'RewardChoiceItemCount6', 'RewardItemId1', 'RewardItemId2', 'RewardItemId3', 'RewardItemId4', 'RewardItemCount1', 'RewardItemCount2', 'RewardItemCount3', 'RewardItemCount4', 'RewardMoneyMaxLevel', 'RewardOrRequiredMoney', 'RequiredSpellCast1', 'RequiredSpellCast2', 'RequiredSpellCast3', 'RequiredSpellCast4', 'RequiredNpcOrGo1', 'RequiredNpcOrGo2', 'RequiredNpcOrGo3', 'RequiredNpcOrGo4', 'RequiredItemId1', 'RequiredItemId2', 'RequiredItemId3', 'RequiredItemId4', 'RequiredItemCount1', 'RequiredItemCount2', 'RequiredItemCount3', 'RequiredItemCount4', 'SourceItemId', 'RequiredNpcOrGoCount1', 'RequiredNpcOrGoCount2', 'RequiredNpcOrGoCount3', 'RequiredNpcOrGoCount4
  *
  */
 function GetQuestInfo(&$data, $dataflag = QUEST_DATAFLAG_MINIMUM)
@@ -397,7 +398,7 @@ function GetQuestInfo(&$data, $dataflag = QUEST_DATAFLAG_MINIMUM)
 				SELECT
 					1
 					{, ?# } {, ?# } {, ?# } {, ?# } {, ?# }
-				FROM quest_template
+				FROM v_quest_template
 				WHERE entry=?d
 				LIMIT 1
 			',
@@ -431,7 +432,7 @@ function GetQuestInfo(&$data, $dataflag = QUEST_DATAFLAG_MINIMUM)
 					ObjectiveText3_loc?d AS ObjectiveText3_loc,
 					ObjectiveText4_loc?d AS ObjectiveText4_loc
 				FROM locales_quest
-				WHERE entry = ?d
+				WHERE Id = ?d
 				LIMIT 1
 			',
 			$loc, $loc, $loc, $loc, $loc, $loc, $loc, $loc, $loc, $loc,
@@ -439,7 +440,7 @@ function GetQuestInfo(&$data, $dataflag = QUEST_DATAFLAG_MINIMUM)
 		);
 
 		if($row)
-			$data = array_merge($data, $row);
+			$data = @array_merge($data, $row);
 	}
 	// Минимальные данные
 	// ID квеста
@@ -455,15 +456,15 @@ function GetQuestInfo(&$data, $dataflag = QUEST_DATAFLAG_MINIMUM)
 	if($dataflag & QUEST_DATAFLAG_PROPS)
 	{
 		// Уровень квеста
-		$data['QuestLevel'] = $data['QuestLevel'];
+		$data['Level'] = $data['Level'];
 		// Требуемый уровень квеста
 		$data['MinLevel'] = $data['MinLevel'];
 		// Доступен расам
 		$data['side'] = races($data['RequiredRaces']);
 		// Флаги
-		$data['QuestFlags'] = $data['QuestFlags'];
+		$data['Flags'] = $data['Flags'];
 		// Ежедневный квест?
-		if($data['QuestFlags'] & QUEST_FLAGS_DAILY)
+		if($data['Flags'] & QUEST_FLAGS_DAILY)
 			$data['Daily'] = true;
 		// Тип квеста
 		$data['type'] = $data['Type'];
@@ -482,7 +483,7 @@ function GetQuestInfo(&$data, $dataflag = QUEST_DATAFLAG_MINIMUM)
 		// Категория 1
 		$data['category'] = $data['ZoneOrSort'];
 		// Категория 2 ???
-		$data['category2'] = $data['QuestFlags'];
+		$data['category2'] = $data['Flags'];
 		// Требуемое пати
 		if($data['SuggestedPlayers']>1)
 			$data['splayers'] = $data['SuggestedPlayers'];
@@ -491,12 +492,12 @@ function GetQuestInfo(&$data, $dataflag = QUEST_DATAFLAG_MINIMUM)
 			$data['LimitTime'] = sec_to_time($data['LimitTime']);
 		else
 			unset($data['LimitTime']);
-		if($data['QuestFlags'] & QUEST_FLAGS_SHARABLE)
+		if($data['Flags'] & QUEST_FLAGS_SHARABLE)
 			$data['Sharable'] = true;
 		if($data['SpecialFlags'] & QUEST_SPECIALFLAGS_REPEATABLE)
 			$data['Repeatable'] = true;
-		if($data['CharTitleId']>0)
-			$data['titlereward'] = $DB->selectCell('SELECT name_loc'.$_SESSION['locale'].' FROM ?_char_titles WHERE id=?d LIMIT 1', $data['CharTitleId']);
+		if($data['RewardTitleId']>0)
+			$data['titlereward'] = $DB->selectCell('SELECT name_loc'.$_SESSION['locale'].' FROM ?_char_titles WHERE id=?d LIMIT 1', $data['RewardTitleId']);
 	}
 
 	// Награды и задания
@@ -506,35 +507,35 @@ function GetQuestInfo(&$data, $dataflag = QUEST_DATAFLAG_MINIMUM)
 		$data['xp'] = GetQuestXpOrMoney($data);
 		// Награды вещей
 		for($j=0;$j<=6;++$j)
-			if(($data['RewChoiceItemId'.$j]!=0) and ($data['RewChoiceItemCount'.$j]!=0))
-				$data['itemchoices'][] = array_merge(
-					allitemsinfo($data['RewChoiceItemId'.$j], 0),
-					array('count' => $data['RewChoiceItemCount'.$j])
+			if(($data['RewardChoiceItemId'.$j]!=0) and ($data['RewardChoiceItemCount'.$j]!=0))
+				$data['itemchoices'][] = @array_merge(
+					allitemsinfo($data['RewardChoiceItemId'.$j], 0),
+					array('count' => $data['RewardChoiceItemCount'.$j])
 				);
 		for($j=0;$j<=4;++$j)
-			if(($data['RewItemId'.$j]!=0) and ($data['RewItemCount'.$j]!=0))
-				$data['itemrewards'][] = array_merge(
-					allitemsinfo($data['RewItemId'.$j], 0),
-					array('count' => $data['RewItemCount'.$j])
+			if(($data['RewardItemId'.$j]!=0) and ($data['RewardItemCount'.$j]!=0))
+				$data['itemrewards'][] = @array_merge(
+					allitemsinfo($data['RewardItemId'.$j], 0),
+					array('count' => $data['RewardItemCount'.$j])
 				);
 		// Вознаграждение репутацией
 		for($j=1;$j<=5;$j++)
-			if($data['RewRepFaction'.$j] != 0)
+			if($data['RewardFactionValueId'.$j] != 0)
 			{
-				$value = $data['RewRepValue'.$j];
-				$id = $data['RewRepValueId'.$j];
+				$value = $data['RewardFactionValueId'.$j];
+				$id = $data['RewardFactionId'.$j];
 				if (!$value && isset($quest_faction_reward[$id]))
 					$value=$quest_faction_reward[$id];
 				if ($value)
-					$data['reprewards'][] = array_merge(factioninfo($data['RewRepFaction'.$j]), array('value' => $value));
+					$data['reprewards'][] = @array_merge(factioninfo($data['RewardFactionId'.$j]), array('value' => $value));
 			}
 		// Вознаграждение деньгами
-		if($data['RewOrReqMoney']>0)
-			$data['money'] = money2coins($data['RewOrReqMoney']);
-		elseif($data['RewOrReqMoney']<0)
-			$data['moneyreq'] = money2coins(-$data['RewOrReqMoney']);
-		if ($data['RewMoneyMaxLevel'])
-			$data['moneymaxlevel'] = money2coins($data['RewMoneyMaxLevel']);
+		if($data['RewardOrRequiredMoney']>0)
+			$data['money'] = money2coins($data['RewardOrRequiredMoney']);
+		elseif($data['RewardOrRequiredMoney']<0)
+			$data['moneyreq'] = money2coins(-$data['RewardOrRequiredMoney']);
+		if ($data['RewardMoneyMaxLevel'])
+			$data['moneymaxlevel'] = money2coins($data['RewardMoneyMaxLevel']);
 	}
 
 	// Последовательность квестов, требования, цепочки

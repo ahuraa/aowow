@@ -77,7 +77,7 @@ if(!$npc = load_cache(NPC_PAGE, $cache_key))
 		$npc['faction'] = $row['faction-name'];
 		// Деньги
 		$money = ($row['mingold']+$row['maxgold']) / 2;
-		$npc = array_merge($npc, money2coins($money));
+		$npc = @array_merge($npc, money2coins($money));
 		// Героик/нормал копия НПС
 		if($npc['difficulty_entry_1'])
 		{
@@ -218,11 +218,15 @@ if(!$npc = load_cache(NPC_PAGE, $cache_key))
 			SELECT ?#, spellID
 			FROM npc_trainer, ?_spell, ?_spellicons
 			WHERE
-				entry=?d
-				AND spellID=Spell
-				AND id=spellicon
+			(
+			-entry IN (SELECT spell FROM npc_trainer WHERE entry = ?)
+			OR (entry = ? AND npc_trainer.spell > 0)
+			)
+			AND spellID = npc_trainer.spell
+			AND id=spellicon
 			',
 			$spell_cols[2],
+			$npc['entry'],
 			$npc['entry']
 		);
 		if($teachspells)
@@ -302,7 +306,7 @@ if(!$npc = load_cache(NPC_PAGE, $cache_key))
 		// Начиниают квесты...
 		$rows_qs = $DB->select('
 			SELECT ?#
-			FROM creature_questrelation c, quest_template q
+			FROM creature_questrelation c, v_quest_template q
 			WHERE
 				c.id=?
 				AND q.entry=c.quest
@@ -334,7 +338,7 @@ if(!$npc = load_cache(NPC_PAGE, $cache_key))
 		// Заканчивают квесты...
 		$rows_qe = $DB->select('
 			SELECT ?#
-			FROM creature_involvedrelation c, quest_template q
+			FROM creature_involvedrelation c, v_quest_template q
 			WHERE
 				c.id=?
 				AND q.entry=c.quest
@@ -354,12 +358,12 @@ if(!$npc = load_cache(NPC_PAGE, $cache_key))
 		// Необходимы для квеста..
 		$rows_qo = $DB->select('
 			SELECT ?#
-			FROM quest_template
+			FROM v_quest_template
 			WHERE
-				ReqCreatureOrGOId1=?
-				OR ReqCreatureOrGOId2=?
-				OR ReqCreatureOrGOId3=?
-				OR ReqCreatureOrGOId4=?
+				RequiredNpcOrGO1=?
+				OR RequiredNpcOrGO2=?
+				OR RequiredNpcOrGO3=?
+				OR RequiredNpcOrGO4=?
 			',
 			$quest_cols[2],
 			$id, $id, $id, $id

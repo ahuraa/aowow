@@ -49,7 +49,7 @@ if(!$item = load_cache(ITEM_PAGE, $cache_key))
 				$lootid
 			);
 			foreach($rows as $row)
-				$item['droppedby'][] = array_merge(creatureinfo2($row), $drop);
+				$item['droppedby'][] = @array_merge(creatureinfo2($row), $drop);
 		}
 		unset($rows);
 		unset($lootid);
@@ -85,13 +85,13 @@ if(!$item = load_cache(ITEM_PAGE, $cache_key))
 			{
 				// Залежи руды
 				if($row['lockproperties1'] == LOCK_PROPERTIES_MINING)
-					$item['minedfromobject'][] = array_merge(objectinfo2($row), $drop);
+					$item['minedfromobject'][] = @array_merge(objectinfo2($row), $drop);
 				// Собирается с трав
 				elseif($row['lockproperties1'] == LOCK_PROPERTIES_HERBALISM)
-					$item['gatheredfromobject'][] = array_merge(objectinfo2($row), $drop);
+					$item['gatheredfromobject'][] = @array_merge(objectinfo2($row), $drop);
 				// Сундуки
 				else
-					$item['containedinobject'][] = array_merge(objectinfo2($row), $drop);
+					$item['containedinobject'][] = @array_merge(objectinfo2($row), $drop);
 			}
 		}
 
@@ -161,13 +161,13 @@ if(!$item = load_cache(ITEM_PAGE, $cache_key))
 	// Поиск квестов, для выполнения которых нужен этот предмет
 	$rows_qr = $DB->select('
 			SELECT q.?# {, l.Title_loc?d AS Title_loc}
-			FROM quest_template q
-			{ LEFT JOIN (locales_quest l) ON l.entry=q.entry AND ? }
+			FROM v_quest_template q
+			{ LEFT JOIN (locales_quest l) ON l.Id=q.entry AND ? }
 			WHERE
-				ReqItemId1=?d
-				OR ReqItemId2=?d
-				OR ReqItemId3=?d
-				OR ReqItemId4=?d
+				RequiredItemId1=?d
+				OR RequiredItemId2=?d
+				OR RequiredItemId3=?d
+				OR RequiredItemId4=?d
 		',
 		$quest_cols[2],
 		$_SESSION['locale'] > 0 ? $_SESSION['locale'] : DBSIMPLE_SKIP,
@@ -185,9 +185,9 @@ if(!$item = load_cache(ITEM_PAGE, $cache_key))
 	// Поиск квестов, при взятии которых выдается этот предмет
 	$rows_qp = $DB->select('
 			SELECT q.?# {, l.Title_loc?d AS Title_loc}
-			FROM quest_template q
-			{ LEFT JOIN (locales_quest l) ON l.entry=q.entry AND ? }
-			WHERE SrcItemId=?d
+			FROM v_quest_template q
+			{ LEFT JOIN (locales_quest l) ON l.Id=q.entry AND ? }
+			WHERE SourceItemId=?d
 		',
 		$quest_cols[2],
 		$_SESSION['locale'] > 0 ? $_SESSION['locale'] : DBSIMPLE_SKIP,
@@ -205,19 +205,19 @@ if(!$item = load_cache(ITEM_PAGE, $cache_key))
 	// Поиск квестов, наградой за выполнение которых, является этот предмет
 	$rows_qrw = $DB->select('
 			SELECT q.?# {, l.Title_loc?d AS Title_loc}
-			FROM quest_template q 
-			{ LEFT JOIN (locales_quest l) ON l.entry=q.entry AND ? }
+			FROM v_quest_template q 
+			{ LEFT JOIN (locales_quest l) ON l.Id=q.entry AND ? }
 			WHERE
-				RewItemId1=?d
-				OR RewItemId2=?d
-				OR RewItemId3=?d
-				OR RewItemId4=?d
-				OR RewChoiceItemId1=?d
-				OR RewChoiceItemId2=?d
-				OR RewChoiceItemId3=?d
-				OR RewChoiceItemId4=?d
-				OR RewChoiceItemId5=?d
-				OR RewChoiceItemId6=?d
+				RewardItemId1=?d
+				OR RewardItemId2=?d
+				OR RewardItemId3=?d
+				OR RewardItemId4=?d
+				OR RewardChoiceItemId1=?d
+				OR RewardChoiceItemId2=?d
+				OR RewardChoiceItemId3=?d
+				OR RewardChoiceItemId4=?d
+				OR RewardChoiceItemId5=?d
+				OR RewardChoiceItemId6=?d
 		',
 		$quest_cols[2],
 		($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
@@ -241,9 +241,9 @@ if(!$item = load_cache(ITEM_PAGE, $cache_key))
 		{
 			$rows_qm = $DB->select('
 					SELECT q.?# {, l.Title_loc?d AS Title_loc}
-					FROM quest_template q
-					{ LEFT JOIN (locales_quest l) ON l.entry=q.entry AND ? }
-					WHERE RewMailTemplateId=?d
+					FROM v_quest_template q
+					{ LEFT JOIN (locales_quest l) ON l.Id=q.entry AND ? }
+					WHERE RewardMailTemplateId=?d
 				',
 				$quest_cols[2],
 				$_SESSION['locale'] > 0 ? $_SESSION['locale'] : DBSIMPLE_SKIP,
@@ -284,7 +284,7 @@ if(!$item = load_cache(ITEM_PAGE, $cache_key))
 				$lootid
 			);
 			foreach($rows as $row)
-				$item['containedinitem'][] = array_merge(iteminfo2($row, 0), $drop);
+				$item['containedinitem'][] = @array_merge(iteminfo2($row, 0), $drop);
 		}
 		unset($drops_cii);
 		unset($rows);
@@ -322,7 +322,7 @@ if(!$item = load_cache(ITEM_PAGE, $cache_key))
 				$lootid
 			);
 			foreach($rows as $row)
-				$item['pickpocketingloot'][] = array_merge(creatureinfo2($row), $drop);
+				$item['pickpocketingloot'][] = @array_merge(creatureinfo2($row), $drop);
 		}
 		unset($rows);
 		unset($lootid);
@@ -356,7 +356,7 @@ if(!$item = load_cache(ITEM_PAGE, $cache_key))
 				$lootid
 			);
 			foreach($rows as $row)
-				$item['skinnedfrom'][] = array_merge(creatureinfo2($row), $drop);
+				$item['skinnedfrom'][] = @array_merge(creatureinfo2($row), $drop);
 		}
 		unset($rows);
 		unset($lootid);
@@ -392,7 +392,7 @@ if(!$item = load_cache(ITEM_PAGE, $cache_key))
 				$lootid
 			);
 			foreach($rows as $row)
-				$item['prospectingloot'][] = array_merge(iteminfo2($row, 0), $drop);
+				$item['prospectingloot'][] = @array_merge(iteminfo2($row, 0), $drop);
 		}
 		unset($rows);
 		unset($lootid);
@@ -428,7 +428,7 @@ if(!$item = load_cache(ITEM_PAGE, $cache_key))
 				$lootid
 			);
 			foreach($rows as $row)
-				$item['disenchantedfrom'][] = array_merge(iteminfo2($row, 0), $drop);
+				$item['disenchantedfrom'][] = @array_merge(iteminfo2($row, 0), $drop);
 		}
 		unset($rows);
 		unset($lootid);
@@ -549,7 +549,7 @@ if(!$item = load_cache(ITEM_PAGE, $cache_key))
 				',
 				$row['spellID']
 			);
-			$item['createdfrom'][] = spellinfo2(array_merge($row, $skillrow));
+			$item['createdfrom'][] = spellinfo2(@array_merge($row, $skillrow));
 		}
 		unset($skillrow);
 	}
@@ -575,7 +575,7 @@ if(!$item = load_cache(ITEM_PAGE, $cache_key))
 			);
 			if($row)
 			{
-				$item['fishedin'][] = array_merge($row, $drop);
+				$item['fishedin'][] = @array_merge($row, $drop);
 			}
 			else
 			{
@@ -590,7 +590,7 @@ if(!$item = load_cache(ITEM_PAGE, $cache_key))
 					$lootid
 				);
 				if($row)
-					$item['fishedin'][] = array_merge($row, $drop);
+					$item['fishedin'][] = @array_merge($row, $drop);
 			}
 		}
 		unset($row);
@@ -626,7 +626,7 @@ if(!$item = load_cache(ITEM_PAGE, $cache_key))
 				$lootid
 			);
 			foreach($rows as $row)
-				$item['milledfrom'][] = array_merge(iteminfo2($row, 0), $drop);
+				$item['milledfrom'][] = @array_merge(iteminfo2($row, 0), $drop);
 		}
 		unset($rows);
 		unset($lootid);

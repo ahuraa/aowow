@@ -1,4 +1,3 @@
-<pre>
 <?php
 /*
     generate_icons.php - code for extracting icons for AoWoW
@@ -150,4 +149,3 @@
   process("ItemDisplayInfo.dbc", "nxxxxsxxxxxxxxxxxxxxxxxxx");
   process("SpellIcon.dbc", "ns");
 ?>
-</pre>

@@ -21,7 +21,7 @@ function getcomments($type, $typeid)
 	foreach($rows as $i=>$row)
 	{
 		$comments[$i] = array();
-		$comments[$i] = $rDB->selectRow('SELECT username as user, gmlevel as roles FROM account WHERE id=? LIMIT 1', $row['userid']);
+		$comments[$i] = $rDB->selectRow('SELECT username as user FROM account WHERE id=? LIMIT 1', $row['userid']);
 		if (!(IsSet($comments[$i]['user'])))
 			$comments[$i]['user'] = "Anonymous";
 		$comments[$i]['number'] = $i;

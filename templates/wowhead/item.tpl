@@ -18,6 +18,8 @@
 						<ul>
 							{* Уровень вещи *}
 							{if $item.level}<li><div>{#level#}: {$item.level}</div></li>{/if}
+{* Сет предмета *}
+{if $item.itemsetin}<li><div>Комплект: <a href="http://wow.dport.com.ua/aowow/?itemset={$item.itemsetin}" target="_blank">{$item.itemsetin}</a></div></li>{/if}
 							{* Стоимость вещи *}
 							{if $item.buygold or $item.buysilver or $item.buycopper}
 								<li><div>

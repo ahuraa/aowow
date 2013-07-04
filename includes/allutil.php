@@ -90,7 +90,7 @@ $types = array(
 	2 => array('object',	'gameobject_template',	'entry'			),
 	3 => array('item',		'item_template',		'entry'			),
 	4 => array('itemset',	$tableprefix.'itemset',	'itemsetID'		),
-	5 => array('quest',		'quest_template',		'entry'			),
+	5 => array('quest',		'v_quest_template',		'entry'			),
 	6 => array('spell',		$tableprefix.'spell',	'spellID'		),
 	7 => array('zone',		$tableprefix.'zones',	'areatableID'	),
 	8 => array('faction',	$tableprefix.'factions','factionID'		),
@@ -444,6 +444,7 @@ $cache_types = array(
 
 	array('object_page',		false			),
 	array('object_listing',		false			),
+	array('object_tot',		    false			),
 
 	array('item_page',			false			),
 	array('item_tooltip',		false			),
@@ -455,6 +456,7 @@ $cache_types = array(
 	array('quest_page',			false			),
 	array('quest_tooltip',		false			),
 	array('quest_listing',		false			),
+	array('quest_tot',		    false			),
 
 	array('spell_page',			false			),
 	array('spell_tooltip',		false			),

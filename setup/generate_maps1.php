@@ -1,4 +1,3 @@
-<pre>
 <?php
 /*
     generate_maps1.php - code for extracting regular maps for AoWoW
@@ -195,4 +194,3 @@
   }
 
 ?>
-</pre>

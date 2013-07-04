@@ -70,7 +70,7 @@ if(!$spell = load_cache(SPELL_PAGE, $cache_key))
 		else if($row['ChannelInterruptFlags'])
 			$spell['casttime'] = 'Channeled';
 		else
-			$spell['casttime'] = 'Instant';
+			$spell['casttime'] = 'Sofort';
 		// Cooldown
 		if($row['cooldown'] > 0)
 			$spell['cooldown'] = $row['cooldown'] / 1000;
@@ -368,10 +368,10 @@ if(!$spell = load_cache(SPELL_PAGE, $cache_key))
 			$taughtbyquest = $DB->select('
 				SELECT c.?#
 				{ , Title_loc?d AS Title_loc }
-				FROM quest_template c
-				{ LEFT JOIN (locales_quest l) ON c.entry = l.entry AND ? }
+				FROM v_quest_template c
+				{ LEFT JOIN (locales_quest l) ON c.entry = l.Id AND ? }
 				WHERE
-					RewSpell IN (?a) OR RewSpellCast IN (?a)
+					RewardSpell IN (?a) OR RewardSpellCast IN (?a)
 				',
 				$quest_cols[2],
 				($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,
@@ -504,11 +504,11 @@ if(!$spell = load_cache(SPELL_PAGE, $cache_key))
 		$questreward = $DB->select('
 			SELECT c.?#
 			{ , Title_loc?d AS Title_loc }
-			FROM quest_template c
-			{ LEFT JOIN (locales_quest l) ON c.entry = l.entry AND ? }
+			FROM v_quest_template c
+			{ LEFT JOIN (locales_quest l) ON c.entry = l.Id AND ? }
 			WHERE
-				RewSpell = ?d
-				OR RewSpellCast = ?d
+				RewardSpell = ?d
+				OR RewardSpellCast = ?d
 			',
 			$quest_cols[2],
 			($_SESSION['locale']>0)? $_SESSION['locale']: DBSIMPLE_SKIP,

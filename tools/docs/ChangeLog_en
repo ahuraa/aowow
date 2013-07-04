@@ -1,3 +1,13 @@
+== 04.07.2013 == Revision **** ================================================
+Add Aowow Full Database SQL.
+Trinitycore Database support:fixed getting data from quest_template via changed column names Thx @darkman1983 .
+Quest:Fixed calculating XP Reward. All data now according to QuestXP.dbc build 3.3.5.12340
+Quest: fixed some output data: honor/arena reward,
+Items: added info about itemset ID if it has.
+Added archive with En+RU maps. 
+Added archive of icons.
+And a lot of more thx @chaosua
+=============================================================================
 == 09.09.2008 == Revision 86 ================================================
  * A lot of bugfixes
 =============================================================================

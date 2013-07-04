@@ -99,12 +99,12 @@ if(!$faction = load_cache(FACTION_PAGE, $cache_key))
 		// Квесты для этой фракции
 		$quests_rows = $DB->select('
 			SELECT ?#
-			FROM quest_template
+			FROM v_quest_template
 			WHERE
-				RewRepFaction1=?d
-				OR RewRepFaction2=?d
-				OR RewRepFaction3=?d
-				OR RewRepFaction4=?d
+				RewardFactionId1=?d
+				OR RewardFactionId2=?d
+				OR RewardFactionId3=?d
+				OR RewardFactionId4=?d
 			',
 			$quest_cols[2],
 			$id, $id, $id, $id

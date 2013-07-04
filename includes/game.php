@@ -604,7 +604,7 @@ function position($id, $type, $spawnMask = 0)
 	$data = $DB->select('
 			SELECT guid, map AS m, position_x AS x, position_y AS y, spawntimesecs, {MovementType AS ?#, }"0" AS `type`
 			FROM '.$type.'
-			WHERE id = ?d {AND spawnMask & ?d}
+			WHERE id = ?d {AND spawnMask & ?d} {AND id != 500001}
 			{ GROUP BY ROUND(x,?d), ROUND(y,?d) }
 			ORDER BY x,y
 		',

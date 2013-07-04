@@ -1,4 +1,3 @@
-<pre>
 <?php
 /*
     generate_maps2.php - code for extracting dungeon maps for AoWoW
@@ -51,4 +50,3 @@
 
   die("Not implemented yet. Sorry.\n");
 ?>
-</pre>

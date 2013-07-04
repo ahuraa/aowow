@@ -42,7 +42,7 @@
 									{/section}
 								</div></li>
 							{/if}{/strip}
-							{if isset($quest.end)}<li><div>{#End#}: {section loop=$quest.end name=i}{if $quest.end[i].side}<span class="{$quest.start[i].side}-icon">{/if}<a href="?{$quest.end[i].type}={$quest.end[i].entry}">{$quest.end[i].name}</a>{if $quest.end[i].side}</span>{/if}{if $smarty.section.i.last}{else}, <br><span style="visibility: hidden;">{#End#}: </span>{/if}{/section}</div></li>{/if}
+							{if isset($quest.end)}<li><div>{#End#}: {section loop=$quest.end name=i}{if $quest.end[i].side}<span class="{$quest.start[i].side}-icon">{/if}<a href="?{$quest.end[i].type}={$quest.end[i].entry}">{$quest.end[i].name}</a>{if $quest.end[i].side}</span>{/if}{if $smarty.section.i.last}{else},<br><span style="visibility: hidden;">{#End#}: </span>{/if}{/section}</div></li>{/if}
 							{if isset($quest.reqskill)}<li><div>{#Skill#}: {$quest.reqskill.name} ({$quest.reqskill.value})</div></li>{/if}
 							{if isset($quest.reqclass)}<li><div>{#Class#}: {$quest.reqclass}</div></li>{/if}
 							{if isset($quest.Sharable)}<li><div>{#Sharable#}</div></li>{/if}
@@ -341,22 +341,22 @@
 <table class="iconlist">
 	<tr>
 		<th align="right" id="iconlist-icon-src"></th>
-		<td><span class="q1"><a href="?item={$quest.SrcItem.entry}">{$quest.SrcItem.name}</a></span></td>
+		<td><span class="q1"><a href="?item={$quest.SrcItem}">{$quest.SrcItem.name}</a></span></td>
 	</tr>
 </table>
 <script type="text/javascript">ge('iconlist-icon-src').appendChild(g_items.createIcon({$quest.SrcItem.entry}, 0, {$quest.SrcItem.count}));</script>
 {/if}
 
-{if isset($quest.SrcSpell) and $quest.SrcSpell}
+{if isset($quest.SourceSpellId) and $quest.SourceSpellId}
 <div class="pad"></div>
 {#The_following_spell_will_be_cast_on_you#}:
 <table class="icontab">
 	<tr>
 		<th align="right" id="icontab-icon-spl"></th>
-		<td><span class="q1"><a href="?spell={$quest.SrcSpell.entry}">{$quest.SrcSpell.name}</a></span></td>
+		<td><span class="q1"><a href="?spell={$quest.SourceSpellId.entry}">{$quest.SourceSpellId.name}</a></span></td>
 	</tr>
 </table>
-<script type="text/javascript">ge('icontab-icon-spl').appendChild(g_spells.createIcon({$quest.SrcSpell.entry}, 0, 0));</script>
+<script type="text/javascript">ge('icontab-icon-spl').appendChild(g_spells.createIcon({$quest.SourceSpellId.entry}, 0, 0));</script>
 {/if}
 
 {if $quest.Details}
@@ -461,7 +461,7 @@
 						{$quest.OfferRewardText}
 {/if}
 
-{if isset($quest.xp) and $quest.xp or isset($quest.reprewards) or isset($quest.titlereward) or isset($quest.mailrewards) or isset($quest.RewHonorAddition) and $quest.RewHonorAddition}
+{if isset($quest.xp) and $quest.xp or isset($quest.reprewards) or isset($quest.titlereward) or isset($quest.mailrewards) or isset($quest.RewardHonor)  or isset($quest.RewardArenaPoints)}
 					<h3>{#Gains#}</h3>
 					{#Upon_completion_of_this_quest_you_will_gain#}:
 					<ul>{strip}
@@ -474,17 +474,24 @@
 							{#at_max_level#}){/if}
 						</div></li>
 {/if}
+
 {if isset($quest.reprewards)}
 {section name=j loop=$quest.reprewards}
 						<li><div>{$quest.reprewards[j].value} {#reputationwith#} <a href="?faction={$quest.reprewards[j].entry}">{$quest.reprewards[j].name}</a></div></li>
 {/section}
 {/if}						
+
 {if isset($quest.titlereward)}
 						<li><div>{#the_title#} "{$quest.titlereward|replace:"%s":"&lt;name&gt;"}"</div></li>
 {/if}
-{if isset($quest.RewHonorAddition) and $quest.RewHonorAddition}
-						<li><div>{$quest.RewHonorAddition} {#Honorable_Kills#}</div></li>
+{if isset($quest.RewardHonor) and $quest.RewardHonor}
+						<li><div>{$quest.RewardHonor} {#Honorable_Kills#}</div></li>
 {/if}
+
+{if isset($quest.RewardArenaPoints) and $quest.RewardArenaPoints}  
+						<li><div>{$quest.RewardArenaPoints} очков арены</div></li>
+{/if}
+
 {if isset($quest.mailrewards)}
 						<li><div>{#Mail_delivery#}
 						{if isset($quest.maildelay)} {#in_time#}

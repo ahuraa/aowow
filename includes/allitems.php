@@ -561,6 +561,8 @@ function iteminfo2(&$Row, $level=0)
 	$item['displayid'] = $Row['displayid'];
 	// Уровень вещи
 	$item['level'] = $Row['ItemLevel'];
+        //Сет вещи
+        $item['itemsetin'] = $Row['itemset'];
 	// Качество вещи...
 	$item['quality'] = $Row['quality'];
 	$item['quality2'] = 7 - $Row['quality'];

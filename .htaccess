@@ -15,3 +15,6 @@ AddDefaultCharset utf8
 	CharsetRecodeMultipartForms Off
 </IfModule>
 php_value		default_charset									UTF-8
+
+php_flag display_errors 1
+php_value error_reporting 1
