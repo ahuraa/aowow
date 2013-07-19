@@ -272,7 +272,6 @@ $spell_aura_names = array(
   314 => 'Prevent Ressurection',
   315 => 'Underwater Walking',
   316 => 'Periodic Haste',
-
 );
 
 // Названия эффектов спеллов
@@ -399,7 +398,7 @@ $spell_effect_names = array(
 	119 => 'Apply Pet Aura',
 	120 => 'Graveyard Teleport',
 	121 => 'Normalized Weapon Damage +',
-
+	122 => '122',
 	123 => 'Scripted Event',
 	124 => 'Player Pull',
 	125 => 'Reduce Threat %',
@@ -407,8 +406,41 @@ $spell_effect_names = array(
 	127 => 'Require Ore',
 	128 => 'Apply Stat Aura',
 	129 => 'Apply Stat Aura %',
-
+	130 => 'redirect Threat',
+	131 => 'Play Sound',
+	132 => 'Paly Music',
 	133 => 'Unlearn Profession Specialization',
+	134 => 'Kill Credit',
+	135 => 'Cal Pet',
+	136 => 'Heal %',
+  137 => 'Energize %',
+  138 => 'Leap Back',
+  139 => 'Clear Quest',
+  140 => 'Force Cast',
+  141 => 'Force Cast With Value',
+  142 => 'Trigger Spell With Value',
+  143 => 'Apply Area Aura Owner',
+  144 => 'Knock Back Destination',
+  145 => 'Pull Towards Destination',
+  146 => 'Activate Rune',
+  147 => 'Quest Fail',
+  148 => 'Trigger Missile Spell With Value',
+  149 => 'Charge Destination',
+  150 => 'Quest Start',
+  151 => 'Triger Spell',
+  152 => 'Summon RAF Friend',
+  153 => 'Create tamed Pet',
+  154 => 'Discover Taxi',
+  155 => 'Titan Grip',
+  156 => 'Enchant Item Prismatic',
+  157 => 'Create Item',
+  158 => 'Miling',
+  159 => 'Allow Rename Pet',
+  160 => '160',
+  161 => 'Talent Spec Count',
+  162 => 'Talent Spec Select',
+  163 => '163',
+  164 => 'Remove Aura',
 );
 
 $pet_skill_categories = array(
