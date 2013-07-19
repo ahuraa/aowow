@@ -217,7 +217,11 @@ if(!$spell = load_cache(SPELL_PAGE, $cache_key))
 					}
 				}
 				elseif($row['effect'.$j.'Aura'] > 0)
+        {
 					$spell['effect'][$i]['name'] .= ': Unknown Aura ('.$row['effect'.$j.'Aura'].')';
+              if($row['effect'.$j.'MiscValue'] > 0)
+                $spell['effect'][$i]['name'] .= ' ('.$row['effect'.$j.'MiscValue'].')';
+        }
 				// Создает вещь:
 				if($row['effect'.$j.'id'] == 24)
 				{
