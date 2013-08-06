@@ -306,7 +306,7 @@ if(!$npc = load_cache(NPC_PAGE, $cache_key))
 		// Начиниают квесты...
 		$rows_qs = $DB->select('
 			SELECT ?#
-			FROM creature_questrelation c, v_quest_template q
+			FROM creature_queststarter c, v_quest_template q
 			WHERE
 				c.id=?
 				AND q.entry=c.quest
@@ -338,7 +338,7 @@ if(!$npc = load_cache(NPC_PAGE, $cache_key))
 		// Заканчивают квесты...
 		$rows_qe = $DB->select('
 			SELECT ?#
-			FROM creature_involvedrelation c, v_quest_template q
+			FROM creature_questender c, v_quest_template q
 			WHERE
 				c.id=?
 				AND q.entry=c.quest

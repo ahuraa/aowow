@@ -1,6 +1,6 @@
 <?php
 
-// Необходима функция questinfo
+// РќРµРѕР±С…РѕРґРёРјР° С„СѓРЅРєС†РёСЏ questinfo
 require_once('includes/allquests.php');
 require_once('includes/allobjects.php');
 require_once('includes/allnpcs.php');
@@ -10,7 +10,7 @@ require_once('includes/allevents.php');
 
 $smarty->config_load($conf_file, 'quest');
 
-// Номер квеста
+// РќРѕРјРµСЂ РєРІРµСЃС‚Р°
 $id = intval($podrazdel);
 
 $cache_key = cache_key($id);
@@ -19,12 +19,12 @@ if(!$quest = load_cache(QUEST_PAGE, $cache_key))
 {
 	unset($quest);
 
-	// Основная инфа
+	// РћСЃРЅРѕРІРЅР°СЏ РёРЅС„Р°
 	$quest = GetDBQuestInfo($id, 0xFFFFFF);
 
 
-	/*              ЦЕПОЧКА КВЕСТОВ              */
-	// Добавляем сам квест в цепочку
+	/*              Р¦Р•РџРћР§РљРђ РљР’Р•РЎРўРћР’              */
+	// Р”РѕР±Р°РІР»СЏРµРј СЃР°Рј РєРІРµСЃС‚ РІ С†РµРїРѕС‡РєСѓ
 	$quest['series'] = array(
 		array(
 			'entry' => $quest['entry'],
@@ -32,7 +32,7 @@ if(!$quest = load_cache(QUEST_PAGE, $cache_key))
 			'NextQuestIdChain' => $quest['NextQuestIdChain']
 			)
 	);
-	// Квесты в цепочке до этого квеста
+	// РљРІРµСЃС‚С‹ РІ С†РµРїРѕС‡РєРµ РґРѕ СЌС‚РѕРіРѕ РєРІРµСЃС‚Р°
 	$tmp = $quest['series'][0];
 	while($tmp)
 	{
@@ -55,7 +55,7 @@ if(!$quest = load_cache(QUEST_PAGE, $cache_key))
 		}
 	}
 	
-	// Квесты в цепочке после этого квеста
+	// РљРІРµСЃС‚С‹ РІ С†РµРїРѕС‡РєРµ РїРѕСЃР»Рµ СЌС‚РѕРіРѕ РєРІРµСЃС‚Р°
 	$tmp = end($quest['series']);
 	while($tmp)
 	{
@@ -82,11 +82,11 @@ if(!$quest = load_cache(QUEST_PAGE, $cache_key))
 		unset($quest['series']);
 	
 
-	/*              ДРУГИЕ КВЕСТЫ              */
-	// (после их нахождения проверяем их тайтлы на наличие локализации)
+	/*              Р”Р РЈР“РР• РљР’Р•РЎРўР«              */
+	// (РїРѕСЃР»Рµ РёС… РЅР°С…РѕР¶РґРµРЅРёСЏ РїСЂРѕРІРµСЂСЏРµРј РёС… С‚Р°Р№С‚Р»С‹ РЅР° РЅР°Р»РёС‡РёРµ Р»РѕРєР°Р»РёР·Р°С†РёРё)
 
 
-	// Квесты, которые необходимо выполнить, что бы получить этот квест
+	// РљРІРµСЃС‚С‹, РєРѕС‚РѕСЂС‹Рµ РЅРµРѕР±С…РѕРґРёРјРѕ РІС‹РїРѕР»РЅРёС‚СЊ, С‡С‚Рѕ Р±С‹ РїРѕР»СѓС‡РёС‚СЊ СЌС‚РѕС‚ РєРІРµСЃС‚
 	if(!$quest['req'] = $DB->select('
 				SELECT q.entry, q.Title, q.NextQuestIdChain
 					{, l.Title_loc?d as Title_loc}
@@ -104,7 +104,7 @@ if(!$quest = load_cache(QUEST_PAGE, $cache_key))
 		else
 			$questItems[] = 'req';
 
-	// Квесты, которые становятся доступными, только после того как выполнен этот квест (необязательно только он)
+	// РљРІРµСЃС‚С‹, РєРѕС‚РѕСЂС‹Рµ СЃС‚Р°РЅРѕРІСЏС‚СЃСЏ РґРѕСЃС‚СѓРїРЅС‹РјРё, С‚РѕР»СЊРєРѕ РїРѕСЃР»Рµ С‚РѕРіРѕ РєР°Рє РІС‹РїРѕР»РЅРµРЅ СЌС‚РѕС‚ РєРІРµСЃС‚ (РЅРµРѕР±СЏР·Р°С‚РµР»СЊРЅРѕ С‚РѕР»СЊРєРѕ РѕРЅ)
 	if(!$quest['open'] = $DB->select('
 				SELECT q.entry, q.Title
 					{, l.Title_loc?d as Title_loc}
@@ -122,7 +122,7 @@ if(!$quest = load_cache(QUEST_PAGE, $cache_key))
 		else
 			$questItems[] = 'open';
 		
-	// Квесты, которые становятся недоступными после выполнения этого квеста
+	// РљРІРµСЃС‚С‹, РєРѕС‚РѕСЂС‹Рµ СЃС‚Р°РЅРѕРІСЏС‚СЃСЏ РЅРµРґРѕСЃС‚СѓРїРЅС‹РјРё РїРѕСЃР»Рµ РІС‹РїРѕР»РЅРµРЅРёСЏ СЌС‚РѕРіРѕ РєРІРµСЃС‚Р°
 	if($quest['ExclusiveGroup']>0)
 		if(!$quest['closes'] = $DB->select('
 				SELECT q.entry, q.Title
@@ -141,7 +141,7 @@ if(!$quest = load_cache(QUEST_PAGE, $cache_key))
 		else
 			$questItems[] = 'closes';
 
-	// Требует выполнения одного из квестов, на выбор:
+	// РўСЂРµР±СѓРµС‚ РІС‹РїРѕР»РЅРµРЅРёСЏ РѕРґРЅРѕРіРѕ РёР· РєРІРµСЃС‚РѕРІ, РЅР° РІС‹Р±РѕСЂ:
 	if(!$quest['reqone'] = $DB->select('
 				SELECT q.entry, q.Title
 					{, l.Title_loc?d as Title_loc}
@@ -159,7 +159,7 @@ if(!$quest = load_cache(QUEST_PAGE, $cache_key))
 		else
 			$questItems[] = 'reqone';
 		
-	// Квесты, которые доступны, только во время выполнения этого квеста
+	// РљРІРµСЃС‚С‹, РєРѕС‚РѕСЂС‹Рµ РґРѕСЃС‚СѓРїРЅС‹, С‚РѕР»СЊРєРѕ РІРѕ РІСЂРµРјСЏ РІС‹РїРѕР»РЅРµРЅРёСЏ СЌС‚РѕРіРѕ РєРІРµСЃС‚Р°
 	if(!$quest['enables'] = $DB->select('
 				SELECT q.entry, q.Title
 					{, l.Title_loc?d as Title_loc}
@@ -176,7 +176,7 @@ if(!$quest = load_cache(QUEST_PAGE, $cache_key))
 		else
 			$questItems[] = 'enables';
 		
-	// Квесты, во время выполнения которых доступен этот квест
+	// РљРІРµСЃС‚С‹, РІРѕ РІСЂРµРјСЏ РІС‹РїРѕР»РЅРµРЅРёСЏ РєРѕС‚РѕСЂС‹С… РґРѕСЃС‚СѓРїРµРЅ СЌС‚РѕС‚ РєРІРµСЃС‚
 	if($quest['PrevQuestId']<0)
 		if(!$quest['enabledby'] = $DB->select('
 				SELECT q.entry, q.Title
@@ -194,7 +194,7 @@ if(!$quest = load_cache(QUEST_PAGE, $cache_key))
 		else
 			$questItems[] = 'enabledby';
 
-	// Теперь локализуем все тайтлы квестов
+	// РўРµРїРµСЂСЊ Р»РѕРєР°Р»РёР·СѓРµРј РІСЃРµ С‚Р°Р№С‚Р»С‹ РєРІРµСЃС‚РѕРІ
 	if($questItems)
 		foreach($questItems as $item)
 			foreach($quest[$item] as $i => $x)
@@ -202,11 +202,11 @@ if(!$quest = load_cache(QUEST_PAGE, $cache_key))
 
 
 
-	/*             НАГРАДЫ И ТРЕБОВАНИЯ             */
+	/*             РќРђР“Р РђР”Р« Р РўР Р•Р‘РћР’РђРќРРЇ             */
 
 	if($quest['RequiredSkillValue']>0 && $quest['RequiredSkill']>0)
 	{
-		// Требуемый уровень скилла, что бы получить квест
+		// РўСЂРµР±СѓРµРјС‹Р№ СѓСЂРѕРІРµРЅСЊ СЃРєРёР»Р»Р°, С‡С‚Рѕ Р±С‹ РїРѕР»СѓС‡РёС‚СЊ РєРІРµСЃС‚
 		/*
 		$skills = array(
 			-264 => 197,	// Tailoring
@@ -234,11 +234,11 @@ if(!$quest = load_cache(QUEST_PAGE, $cache_key))
 			if (intval(-$quest['RequiredClasses']) & (1<<$i))
 				$s[] = $class;
 		if (count($s) == 0) $s[] = "UNKNOWN";
-		// Требуемый класс, что бы получить квест
+		// РўСЂРµР±СѓРµРјС‹Р№ РєР»Р°СЃСЃ, С‡С‚Рѕ Р±С‹ РїРѕР»СѓС‡РёС‚СЊ РєРІРµСЃС‚
 		$quest['reqclass'] = implode(", ", $s);
 	}
 	
-	// Требуемые отношения с фракциями, что бы начать квест
+	// РўСЂРµР±СѓРµРјС‹Рµ РѕС‚РЅРѕС€РµРЅРёСЏ СЃ С„СЂР°РєС†РёСЏРјРё, С‡С‚Рѕ Р±С‹ РЅР°С‡Р°С‚СЊ РєРІРµСЃС‚
 	if($quest['RequiredMinRepFaction'])
 		$quest['RequiredMinRep'] = array(
 			'name' => $DB->selectCell('SELECT name_loc'.$_SESSION['locale'].' FROM ?_factions WHERE factionID=?d LIMIT 1', $quest['RequiredMinRepFaction']),
@@ -252,10 +252,10 @@ if(!$quest = load_cache(QUEST_PAGE, $cache_key))
 			'value' => reputations($quest['RequiredMaxRepValue'])
 		);
 	
-	// Спеллы не требуют локализации, их инфа берется из базы
-	// Хранить в базе все локализации - задачка на будующее
+	// РЎРїРµР»Р»С‹ РЅРµ С‚СЂРµР±СѓСЋС‚ Р»РѕРєР°Р»РёР·Р°С†РёРё, РёС… РёРЅС„Р° Р±РµСЂРµС‚СЃСЏ РёР· Р±Р°Р·С‹
+	// РҐСЂР°РЅРёС‚СЊ РІ Р±Р°Р·Рµ РІСЃРµ Р»РѕРєР°Р»РёР·Р°С†РёРё - Р·Р°РґР°С‡РєР° РЅР° Р±СѓРґСѓСЋС‰РµРµ
 
-	// Спелл, кастуемый на игрока в начале квеста
+	// РЎРїРµР»Р», РєР°СЃС‚СѓРµРјС‹Р№ РЅР° РёРіСЂРѕРєР° РІ РЅР°С‡Р°Р»Рµ РєРІРµСЃС‚Р°
 	if($quest['SourceSpellId'])
 	{
 		$tmp = $DB->selectRow('
@@ -278,19 +278,19 @@ if(!$quest = load_cache(QUEST_PAGE, $cache_key))
 		unset($tmp);
 	}
 	
-	// Итем, выдаваемый игроку в начале квеста
+	// РС‚РµРј, РІС‹РґР°РІР°РµРјС‹Р№ РёРіСЂРѕРєСѓ РІ РЅР°С‡Р°Р»Рµ РєРІРµСЃС‚Р°
 	if($quest['SourceItemId'])
 	{
 		$quest['SrcItem'] = iteminfo($quest['SourceItemId']);
 		$quest['SrcItem']['count'] = $quest['SourceItemCount'];
 	}
 	
-	// Дополнительная информация о квесте (флаги, повторяемость, скрипты)
+	// Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ РєРІРµСЃС‚Рµ (С„Р»Р°РіРё, РїРѕРІС‚РѕСЂСЏРµРјРѕСЃС‚СЊ, СЃРєСЂРёРїС‚С‹)
 	$quest['flagsdetails'] = GetFlagsDetails($quest);
 	if (!$quest['flagsdetails'])
 		unset($quest['flagsdetails']);
 
-	// Спелл, кастуемый на игрока в награду за выполнение
+	// РЎРїРµР»Р», РєР°СЃС‚СѓРµРјС‹Р№ РЅР° РёРіСЂРѕРєР° РІ РЅР°РіСЂР°РґСѓ Р·Р° РІС‹РїРѕР»РЅРµРЅРёРµ
 	if($quest['RewardSpellCast']>0 || $quest['RewardSpell']>0)
 	{
 		$tmp = $DB->SelectRow('
@@ -314,7 +314,7 @@ if(!$quest = load_cache(QUEST_PAGE, $cache_key))
 		unset($tmp);
 	}
 
-	// Создания, необходимые для квеста
+	// РЎРѕР·РґР°РЅРёСЏ, РЅРµРѕР±С…РѕРґРёРјС‹Рµ РґР»СЏ РєРІРµСЃС‚Р°
 	//$quest['creaturereqs'] = array();
 	//$quest['objectreqs'] = array();
 	$quest['coreqs'] = array();
@@ -325,7 +325,7 @@ if(!$quest = load_cache(QUEST_PAGE, $cache_key))
 		{
 			if($quest['RequiredNpcOrGo'.$i] > 0)
 			{
-				// Необходимо какое-либо взамодействие с созданием
+				// РќРµРѕР±С…РѕРґРёРјРѕ РєР°РєРѕРµ-Р»РёР±Рѕ РІР·Р°РјРѕРґРµР№СЃС‚РІРёРµ СЃ СЃРѕР·РґР°РЅРёРµРј
 				$quest['coreqs'][$i] = array_merge(
 					creatureinfo($quest['RequiredNpcOrGo'.$i]),
 					array('req_type' => 'npc')
@@ -333,15 +333,15 @@ if(!$quest = load_cache(QUEST_PAGE, $cache_key))
 			}
 			else
 			{
-				// необходимо какое-то взаимодействие с объектом
+				// РЅРµРѕР±С…РѕРґРёРјРѕ РєР°РєРѕРµ-С‚Рѕ РІР·Р°РёРјРѕРґРµР№СЃС‚РІРёРµ СЃ РѕР±СЉРµРєС‚РѕРј
 				$quest['coreqs'][$i] = @array_merge(
 					objectinfo(-$quest['RequiredNpcOrGo'.$i]),
 					array('req_type' => 'object')
 				);
 			}
-			// Количество
+			// РљРѕР»РёС‡РµСЃС‚РІРѕ
 			$quest['coreqs'][$i]['count'] = $quest['RequiredNpcOrGoCount'.$i];
-			// Спелл
+			// РЎРїРµР»Р»
 			if($quest['RequiredSpellCast'.$i])
 				$quest['coreqs'][$i]['spell'] = array(
 					'name' => $DB->selectCell('SELECT spellname_loc'.$_SESSION['locale'].' FROM ?_spell WHERE spellid=?d LIMIT 1', $quest['RequiredSpellCast'.$i]),
@@ -352,7 +352,7 @@ if(!$quest = load_cache(QUEST_PAGE, $cache_key))
 	if(!$quest['coreqs'])
 		unset($quest['coreqs']);
 
-	// Вещи, необходимые для квеста
+	// Р’РµС‰Рё, РЅРµРѕР±С…РѕРґРёРјС‹Рµ РґР»СЏ РєРІРµСЃС‚Р°
 	$quest['itemreqs'] = array();
 	for($i=0;$i<=4;++$i)
 	{
@@ -362,7 +362,7 @@ if(!$quest = load_cache(QUEST_PAGE, $cache_key))
 	if(!$quest['itemreqs'])
 		unset($quest['itemreqs']);
 
-	// Фракции необходимые для квеста
+	// Р¤СЂР°РєС†РёРё РЅРµРѕР±С…РѕРґРёРјС‹Рµ РґР»СЏ РєРІРµСЃС‚Р°
 	if($quest['RepObjectiveFaction']>0)
 	{
 		$quest['factionreq'] = array(
@@ -372,14 +372,14 @@ if(!$quest = load_cache(QUEST_PAGE, $cache_key))
 		);
 	}
 
-	/* КВЕСТГИВЕРЫ И КВЕСТТЕЙКЕРЫ */
+	/* РљР’Р•РЎРўР“РР’Р•Р Р« Р РљР’Р•РЎРўРўР•Р™РљР•Р Р« */
 
-	// КВЕСТГИВЕРЫ
-	// НПС
+	// РљР’Р•РЎРўР“РР’Р•Р Р«
+	// РќРџРЎ
 	$rows = $DB->select('
 		SELECT c.entry, c.name, A, H
 			{, l.name_loc?d AS name_loc}
-		FROM creature_questrelation q, ?_factiontemplate, creature_template c
+		FROM creature_queststarter q, ?_factiontemplate, creature_template c
 			{LEFT JOIN (locales_creature l) ON l.entry=c.entry AND ?}
 		WHERE
 			q.quest=?d
@@ -404,7 +404,7 @@ if(!$quest = load_cache(QUEST_PAGE, $cache_key))
 	}
 	unset($rows);
 
-	// НПС-ивентовые
+	// РќРџРЎ-РёРІРµРЅС‚РѕРІС‹Рµ
 	$rows = event_find(array('quest_id' => $quest['entry']));
 	if ($rows)
 	{
@@ -424,11 +424,11 @@ if(!$quest = load_cache(QUEST_PAGE, $cache_key))
 	}
 	unset($rows);
 
-	// ГО
+	// Р“Рћ
 	$rows = $DB->select('
 		SELECT g.entry, g.name
 			{, l.name_loc?d AS name_loc}
-		FROM gameobject_questrelation q, gameobject_template g
+		FROM gameobject_queststarter q, gameobject_template g
 			{LEFT JOIN (locales_gameobject l) ON l.entry = g.entry AND ?}
 		WHERE
 			q.quest=?d
@@ -448,7 +448,7 @@ if(!$quest = load_cache(QUEST_PAGE, $cache_key))
 	}
 	unset($rows);
 
-	// итем
+	// РёС‚РµРј
 	$rows = $DB->select('
 		SELECT i.name, i.entry, i.quality, LOWER(a.iconname) AS iconname
 			{, l.name_loc?d AS name_loc}
@@ -472,12 +472,12 @@ if(!$quest = load_cache(QUEST_PAGE, $cache_key))
 	}
 	unset($rows);
 	
-	// КВЕСТТЕЙКЕРЫ
-	// НПС
+	// РљР’Р•РЎРўРўР•Р™РљР•Р Р«
+	// РќРџРЎ
 	$rows = $DB->select('
 		SELECT c.entry, c.name, A, H
 			{, l.name_loc?d AS name_loc}
-		FROM creature_involvedrelation q, ?_factiontemplate, creature_template c
+		FROM creature_questender q, ?_factiontemplate, creature_template c
 			{LEFT JOIN (locales_creature l) ON l.entry=c.entry AND ?}
 		WHERE
 			q.quest=?d
@@ -502,11 +502,11 @@ if(!$quest = load_cache(QUEST_PAGE, $cache_key))
 	}
 	unset($rows);
 
-	// ГО
+	// Р“Рћ
 	$rows = $DB->select('
 		SELECT g.entry, g.name
 			{, l.name_loc?d AS name_loc}
-		FROM gameobject_involvedrelation q, gameobject_template g
+		FROM gameobject_questender q, gameobject_template g
 			{LEFT JOIN (locales_gameobject l) ON l.entry = g.entry AND ?}
 		WHERE
 			q.quest=?d
@@ -526,7 +526,7 @@ if(!$quest = load_cache(QUEST_PAGE, $cache_key))
 	}
 	unset($rows);
 
-	// Цель критерии
+	// Р¦РµР»СЊ РєСЂРёС‚РµСЂРёРё
 	$rows = $DB->select('
 			SELECT a.id, a.faction, a.name_loc?d AS name, a.description_loc?d AS description, a.category, a.points, s.iconname, z.areatableID
 			FROM ?_spellicons s, ?_achievementcriteria c, ?_achievement a
@@ -555,7 +555,7 @@ if(!$quest = load_cache(QUEST_PAGE, $cache_key))
 		}
 	}
 
-	// Награды и благодарности, присылаемые почтой
+	// РќР°РіСЂР°РґС‹ Рё Р±Р»Р°РіРѕРґР°СЂРЅРѕСЃС‚Рё, РїСЂРёСЃС‹Р»Р°РµРјС‹Рµ РїРѕС‡С‚РѕР№
 	if ($quest['RewardMailTemplateId'])
 	{
 		if(!($quest['mailrewards'] = loot('mail_loot_template', $quest['RewardMailTemplateId'])))
@@ -580,15 +580,15 @@ $page = array(
 
 $smarty->assign('page', $page);
 
-// Комментарии
+// РљРѕРјРјРµРЅС‚Р°СЂРёРё
 $smarty->assign('comments', getcomments($page['type'], $page['typeid']));
 
-// Данные о квесте
+// Р”Р°РЅРЅС‹Рµ Рѕ РєРІРµСЃС‚Рµ
 $smarty->assign('quest', $quest);
 
-// Количество MySQL запросов
+// РљРѕР»РёС‡РµСЃС‚РІРѕ MySQL Р·Р°РїСЂРѕСЃРѕРІ
 $smarty->assign('mysql', $DB->getStatistics());
-// Загружаем страницу
+// Р—Р°РіСЂСѓР¶Р°РµРј СЃС‚СЂР°РЅРёС†Сѓ
 $smarty->display('quest.tpl');
 
 ?>

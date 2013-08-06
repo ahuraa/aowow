@@ -14,7 +14,7 @@ if(!$data = load_cache(OBJECT_LISTING, $cache_key))
 	$rows = $DB->select("
 			SELECT g.* {, a.requiredskill1 as ?#} {, a.requiredskill2 as ?#}
 				{, l.name_loc?d AS `name_loc`}
-			FROM {gameobject_questrelation ?#, } {?_lock ?#, } gameobject_template g
+			FROM {gameobject_queststarter ?#, } {?_lock ?#, } gameobject_template g
 				{LEFT JOIN (locales_gameobject l) ON l.entry=g.entry AND ?d}
 			WHERE 
 				g.name <> ''
